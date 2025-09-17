@@ -1,102 +1,111 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Badge } from "./components/Badge";
+import {
+  Clock,
+  DollarSign,
+  Zap,
+  AlertTriangle,
+  Coffee,
+  Gamepad2,
+  Brain,
+} from "lucide-react";
+import { FeatureTile } from "./components/FeatureTile";
+
+const features = [
+  {
+    Icon: Clock,
+    title: "Testing your patience",
+    color: "text-purple-400",
+    description:
+      "Experience the joy of endless waiting. You're never getting to the other side of the Grestin Wall.",
+  },
+  {
+    Icon: DollarSign,
+    title: "Testing your wallet",
+    color: "text-green-400",
+    description:
+      "Enjoy spending your money on useless crap? This game is perfect for those of you with lots of money to waste.",
+  },
+  {
+    Icon: Zap,
+    title: "Testing your sanity",
+    color: "text-yellow-400",
+    description:
+      "Love randomly getting kicked on the face by a homeless stranger terrorist or being pushed back in the line?",
+  },
+  {
+    Icon: Brain,
+    title: "Testing your ability to comply",
+    color: "text-gray-300",
+    description:
+      "Thought-crime will not be accepted at any point. To get to the other side, you need strong nerves - and no (proven) terrorist associations.",
+  },
+];
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [year, setYear] = useState(new Date().getUTCFullYear());
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const increment = () => setYear((y) => y + 1);
+    const interval = setInterval(increment, 100);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="w-8/12 mx-auto pt-12 geist">
+      <header className="flex flex-row justify-left items-end gap-1.5 text-white">
+        <span className="font-light">from the makers of Jump-A-Ball</span>
+        <span className="font-semibold text-2xl">orbited game studios</span>
+      </header>
+      <section>
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-col text-white gap-2">
+            <h1 className="flex flex-col text-6xl">
+              <span className="font-black">papers please</span>
+              <span className="font-bold italic">citizen edition</span>
+            </h1>
+            <div className="flex flex-row py-4 gap-2">
+              <Badge content="Powered by Unity" />
+              <Badge content="In active development" />
+              <Badge content="100% Pay-2-Win" />
+              <Badge content={`Coming Q4 ${year}`} />
+            </div>
+            <span className="mt-2 text-xl">
+              Boring political dystopian reality game
+            </span>
+          </div>
+          <Image
+            src="/image.png"
+            width={500}
+            height={500}
+            alt="Game beta screenshot"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+      <section>
+        <button
+          className="bg-purple-900 text-white p-2 rounded-xl"
+          onClick={() => alert("The game isn't finished you dumbass")}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          Purchase
+        </button>
+      </section>
+
+      <section className="my-13">
+        <span className="font-black italic text-white text-5xl">features</span>
+        <div className="grid grid-cols-2 gap-6 mt-8">
+          {features.map(({ Icon, title, color, description }) => (
+            <FeatureTile key={title} Icon={Icon} title={title} color={color}>
+              {description}
+            </FeatureTile>
+          ))}
+        </div>
+      </section>
+
+      <footer className="text-center text-white">
+        Not affiliated with Lucas Pope or 3909 LLC
       </footer>
     </div>
   );
