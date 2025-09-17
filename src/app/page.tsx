@@ -18,28 +18,28 @@ const features = [
   {
     Icon: Clock,
     title: "Testing your patience",
-    color: "text-purple-400",
+    color: "text-white",
     description:
       "Experience the joy of endless waiting. You're never getting to the other side of the Grestin Wall.",
   },
   {
     Icon: DollarSign,
     title: "Testing your wallet",
-    color: "text-green-400",
+    color: "text-white",
     description:
       "Enjoy spending your money on useless crap? This game is perfect for those of you with lots of money to waste.",
   },
   {
     Icon: Zap,
     title: "Testing your sanity",
-    color: "text-yellow-400",
+    color: "text-white",
     description:
       "Love randomly getting kicked on the face by a homeless stranger terrorist or being pushed back in the line?",
   },
   {
     Icon: Brain,
     title: "Testing your ability to comply",
-    color: "text-gray-300",
+    color: "text-white",
     description:
       "Thought-crime will not be accepted at any point. To get to the other side, you need strong nerves - and no (proven) terrorist associations.",
   },
@@ -65,7 +65,12 @@ export default function Home() {
           <div className="flex flex-col text-white gap-2">
             <h1 className="flex flex-col text-6xl">
               <span className="font-black">papers please</span>
-              <span className="font-bold italic">citizen edition</span>
+              <span
+                className="font-bold italic"
+                style={{ fontFamily: "Geist Mono" }}
+              >
+                citizen edition
+              </span>
             </h1>
             <div className="flex flex-row py-4 gap-2">
               <Badge content="Powered by Godot" />
@@ -87,7 +92,7 @@ export default function Home() {
       </section>
       <section>
         <button
-          className="bg-purple-900 text-white p-2 rounded-xl"
+          className="bg-[#4F4F4F] text-white p-2 rounded-xl"
           onClick={() => alert("The game isn't finished you dumbass")}
         >
           Purchase

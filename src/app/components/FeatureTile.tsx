@@ -9,7 +9,7 @@ export const FeatureTile = ({
   color: string;
   children: React.ReactNode;
 }) => (
-  <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
+  <div className="bg-[#4f4f4f] border-2 border-[#444444] rounded-lg p-6">
     <div className="flex items-center gap-3 mb-3">
       <Icon className={`w-8 h-8 ${color}`} />
       <h3 className="text-white font-bold text-xl">{title}</h3>
