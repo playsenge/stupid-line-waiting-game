@@ -68,7 +68,7 @@ export default function Home() {
               <span className="font-bold italic">citizen edition</span>
             </h1>
             <div className="flex flex-row py-4 gap-2">
-              <Badge content="Powered by Unity" />
+              <Badge content="Powered by Godot" />
               <Badge content="In active development" />
               <Badge content="100% Pay-2-Win" />
               <Badge content={`Coming Q4 ${year}`} />
